@@ -1,0 +1,84 @@
+<br/>
+<mat-card>
+  <div [formGroup]="complexForm">
+      <h4><i>SimpleWeinValidator</i></h4>
+      <mat-form-field class="example-full-width">
+          <input matInput type="number" placeholder="Menge Wein" formControlName="mengeWein">
+           
+           
+            <mat-error *ngIf="mengeWeinCtrl.hasError('required')">Bitte eine Wein-Menge eingeben</mat-error>
+            <mat-error *ngIf="mengeWeinCtrl.hasError('wertZuKlein')">Die angebenene Menge ist kleiner als 5</mat-error>
+            <mat-error *ngIf="mengeWeinCtrl.hasError('wertZuGross')">Die angebenene Menge ist grösser als 100</mat-error>
+
+
+      </mat-form-field>
+      <mat-form-field>
+                          <mat-select formControlName="einheit" placeholder="Einheit">
+                            <mat-option *ngFor="let einheitsoption of einheitsoptionen"
+                                                            [value]="einheitsoption.id">
+                                                    {{einheitsoption.bezeichnung}}
+                            </mat-option>
+                            
+                          </mat-select>
+      </mat-form-field>         
+  </div>
+
+<br/>
+
+<hr>
+  <div *ngIf="true" [formGroup]="complexForm2">
+      <h4><i>ComplexerWeinValidator</i></h4>
+      <mat-form-field class="example-full-width">
+          <input matInput type="number" placeholder="Menge Wein" formControlName="mengeWein2">
+          <mat-error *ngIf="mengeWeinCtrl2.invalid">{{ getErrorFromControl(mengeWeinCtrl2) }} </mat-error>
+            <!--
+            <mat-error *ngIf="mengeWeinCtrl2.hasError('required')">Bitte 'ne Wein-Menge eingeben</mat-error>
+            <mat-error *ngIf="mengeWeinCtrl2.hasError('wertLiterZuKlein')">Die angebenene Liter-Menge ist kleiner als 5</mat-error>
+            <mat-error *ngIf="mengeWeinCtrl2.hasError('wertLiterZuGross')">Die angebenene Liter-Menge ist grösser als 100</mat-error>
+            <mat-error *ngIf="mengeWeinCtrl2.hasError('wertDeziZuKlein')">Die angebenene DEZILiter-Menge ist kleiner als 5</mat-error>
+            <mat-error *ngIf="mengeWeinCtrl2.hasError('wertDeziZuGross')">Die angebenene DEZILiter-Menge ist grösser als 100</mat-error>
+            -->
+
+      </mat-form-field>
+      <mat-form-field>
+                          <mat-select formControlName="einheit2" placeholder="Einheit">
+                            <mat-option *ngFor="let einheitsoption of einheitsoptionen"
+                                                            [value]="einheitsoption.id">
+                                                    {{einheitsoption.bezeichnung}}
+                            </mat-option>
+                            
+                          </mat-select>
+      </mat-form-field>         
+  </div>
+
+<hr>
+  <div  *ngIf="true" [formGroup]="complexForm3">
+      <h4><i>Most Complex WeinValidator</i></h4>
+      <mat-form-field class="example-full-width">
+          <input matInput type="number" placeholder="Menge Wein" formControlName="mengeWein3">
+          <mat-error *ngIf="mengeWeinCtrl3.invalid">{{ getErrorFromControl(mengeWeinCtrl3) }} </mat-error>
+          <!--
+            <mat-error *ngIf="mengeWeinCtrl3.hasError('required')">Bitte eine schöne Menge Wein eingeben</mat-error>
+            <mat-error *ngIf="mengeWeinCtrl3.hasError('wertLiterZuKlein')">Die angebenene Liter-Menge ist kleiner als 5</mat-error>
+            <mat-error *ngIf="mengeWeinCtrl3.hasError('wertLiterZuGross')">Die angebenene Liter-Menge ist grösser als 100</mat-error>
+            <mat-error *ngIf="mengeWeinCtrl3.hasError('wertDeziZuKlein')">Die angebenene DEZILiter-Menge ist kleiner als 5</mat-error>
+            <mat-error *ngIf="mengeWeinCtrl3.hasError('wertDeziZuGross')">Die angebenene DEZILiter-Menge ist grösser als 100</mat-error-->
+
+      </mat-form-field>
+            
+  </div>
+
+<hr>
+  <div  *ngIf="true" [formGroup]="complexForm4">
+      <h4><i>Asynchroner WeinValidator</i></h4>
+      <mat-form-field class="example-full-width">
+          <input matInput type="number" placeholder="Menge Wein" formControlName="mengeWein4">
+          <mat-error *ngIf="mengeWeinCtrl4.invalid">{{ getErrorFromControl(mengeWeinCtrl4) }} </mat-error>            
+      </mat-form-field>
+            
+  </div>
+
+
+</mat-card>
+<br/>
+
