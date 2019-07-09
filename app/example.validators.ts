@@ -2,6 +2,7 @@ import {FormControl, FormGroup, AbstractControl, ValidatorFn} from '@angular/for
 import {ValidationErrors} from "@angular/forms/src/directives/validators";
 import {InputOverviewExample, TheoError} from "./input-overview-example";
 import {Observable} from "rxjs";
+import { mapTo, delay } from 'rxjs/operators';
 
 export function SimpleWeinMengeValidator(control: FormControl) : ValidationErrors | null 
 {
@@ -127,6 +128,6 @@ export function AsyncWeinUserValidator(control: FormControl) : Promise<Validatio
 
     let observableError = (Number(menge) == 4 ? Observable.of({ 'wertGerade4': true } ) :  Observable.of(null));
 
-    return observableError;
+    return observableError.delay(1000);
 
 } 

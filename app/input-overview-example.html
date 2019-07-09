@@ -1,6 +1,32 @@
 <br/>
 <mat-card>
-  <div [formGroup]="complexForm">
+ 
+ 
+
+ <div style="display: inline-box; width:230px; border:'1px solid blue;';" [ngStyle]="backgColr1">
+ 
+   <br/>
+   <br/>
+</div> 
+<hr>
+<div style="display: inline-box; width:230px; border:'1px solid blue;';" [ngStyle]="backgColr2">
+ 
+   <br/>
+   <br/>
+</div> 
+ 
+
+<hr/>
+<div><input style="" type="button" value="subscribe" (click)="subscribeClick($event)" /> </div>
+
+<hr/>
+<div><input style="" type="button" value="take destroy" (click)="destroyTake($event)" /> </div>
+
+
+
+
+
+  <div *ngIf="false"[formGroup]="complexForm">
       <h4><i>SimpleWeinValidator</i></h4>
       <mat-form-field class="example-full-width">
           <input matInput type="number" placeholder="Menge Wein" formControlName="mengeWein">
@@ -23,10 +49,10 @@
       </mat-form-field>         
   </div>
 
-<br/>
+<br *ngIf="false" >
 
-<hr>
-  <div *ngIf="true" [formGroup]="complexForm2">
+<hr *ngIf="false">
+  <div *ngIf="false" [formGroup]="complexForm2">
       <h4><i>ComplexerWeinValidator</i></h4>
       <mat-form-field class="example-full-width">
           <input matInput type="number" placeholder="Menge Wein" formControlName="mengeWein2">
@@ -52,7 +78,7 @@
   </div>
 
 <hr>
-  <div  *ngIf="true" [formGroup]="complexForm3">
+  <div  *ngIf="false" [formGroup]="complexForm3">
       <h4><i>Most Complex WeinValidator</i></h4>
       <mat-form-field class="example-full-width">
           <input matInput type="number" placeholder="Menge Wein" formControlName="mengeWein3">
@@ -75,7 +101,7 @@
           <input matInput type="number" placeholder="Menge Wein" formControlName="mengeWein4">
           <mat-error *ngIf="mengeWeinCtrl4.invalid">{{ getErrorFromControl(mengeWeinCtrl4) }} </mat-error>            
       </mat-form-field>
-            
+       <mat-spinner *ngIf="mengeWeinCtrl4.pending" > </mat-spinner>     
   </div>
 
 

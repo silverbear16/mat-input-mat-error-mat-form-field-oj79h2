@@ -5,7 +5,9 @@ import {
     Validators, AbstractControl
 } from '@angular/forms';
 import {SimpleWeinMengeValidator, ComplexerWeinMengeValidator , MostComplexWeinMengeValidator, extrahiereErstenTheoFehler , AsyncWeinUserValidator} from "./example.validators";
-
+import {ObservableWorkshopService} from "./observable.service";
+import {Observable, Subject} from "rxjs";
+import { mapTo, delay, tap, takeUntil } from 'rxjs/operators';
 
 /**
  * @title Basic Inputs
@@ -14,13 +16,78 @@ import {SimpleWeinMengeValidator, ComplexerWeinMengeValidator , MostComplexWeinM
   selector: 'input-overview-example',
   styleUrls: ['input-overview-example.css'],
   templateUrl: 'input-overview-example.html',
+
+  providers: [ObservableWorkshopService]
 })
 export class InputOverviewExample implements OnInit {
+
+  backgColrRed = {'background-color': 'red'};
+  backgColrBlue = {'background-color': 'blue'};
+  backgColrGreen = {'background-color': 'green'};
+  backgColrHell = {'background-color': '#80ced6'};
+
+
+  backgColr1 = this.backgColrHell;
+  backgColr2 = this.backgColrHell;
+
 
   mengeWeinCtrl : FormControl = new FormControl({value: '', disabled: false}, [Validators.required,SimpleWeinMengeValidator]);
   einheitCtrl : FormControl = new FormControl({value: '', disabled: false}, Validators.required);
 
   einheitsoptionen: Einheitsoption[] = [{id: 'id_liter', bezeichnung: 'Liter'}, {id: 'id_deziliter', bezeichnung: 'DeziLiter'}];
+
+  obsrv: Observable<number>;
+
+  destroy$: Subject<boolean> = new Subject<boolean>();
+
+  constructor(private observableService: ObservableWorkshopService){
+
+  }
+
+
+
+  ngOnInit(): void {
+
+
+      let obs = this.observableService.ssimpleObservable();
+
+      this.obsrv = obs.takeUntil(this.destroy$)
+      .pipe(tap((numb) => this.backgColr1 = this.backgColrRed),
+      delay(2000),
+      tap((numb) => this.backgColr1 = this.backgColrGreen)
+      );
+      
+      
+      // this.backgColr1 = this.backgColrRed;
+
+
+      this.mengeWeinCtrl2.markAsTouched();
+      this.einheitCtrl2.markAsTouched();
+
+      this.einheitCtrl2.valueChanges.subscribe(
+        val => { // this.mengeWeinCtrl2.updateValueAndValidity();
+         this.mengeWeinCtrl3.updateValueAndValidity();}
+      );
+
+
+      this.mengeWeinCtrl3.markAsTouched();
+      
+  }  
+
+  public subscribeClick(event) : void {
+      this.obsrv.subscribe((numb)=> {
+          console.log("number: ", numb);
+        },
+
+        ()=> {console.log(" completed ")}
+
+      )}
+
+private destroyTake(event) {
+  console.log("destry ta!")
+   this.destroy$.next(false);
+}
+
 
 // 
   complexForm: FormGroup = new FormGroup({        
@@ -40,20 +107,7 @@ export class InputOverviewExample implements OnInit {
         'einheit2' : this.einheitCtrl2
     })
 
-  ngOnInit(): void {
-      this.mengeWeinCtrl2.markAsTouched();
-      this.einheitCtrl2.markAsTouched();
-
-      this.einheitCtrl2.valueChanges.subscribe(
-        val => { // this.mengeWeinCtrl2.updateValueAndValidity();
-         this.mengeWeinCtrl3.updateValueAndValidity();}
-      );
-
-
-      this.mengeWeinCtrl3.markAsTouched();
-      
-  }  
-
+  
 // ===================================================================================================
 
 
