@@ -100,6 +100,7 @@ export class DemoMaterialModule {}
   entryComponents: [ObservableComponent,InputOverviewExample],
   declarations: [ObservableComponent,InputOverviewExample],
   bootstrap: [ObservableComponent],
+  // bootstrap: [InputOverviewExample],
   providers: []
 })
 export class AppModule {}

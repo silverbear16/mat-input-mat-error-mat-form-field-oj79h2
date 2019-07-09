@@ -126,8 +126,8 @@ export function AsyncWeinUserValidator(control: FormControl) : Promise<Validatio
     if ((menge == null) || menge === '') return Observable.of(null);
     
 
-    let observableError = (Number(menge) == 4 ? Observable.of({ 'wertGerade4': true } ) :  Observable.of(null));
+    let observableResult = (Number(menge) == 4 ? Observable.of({ 'wertGerade4': true } ) :  Observable.of(null));
 
-    return observableError.delay(1000);
+    return observableResult.delay(1000);
 
 } 

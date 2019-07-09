@@ -1,11 +1,12 @@
 <br/>
 <mat-card>
  
- 
+ <div *ngIf="false">
 
  <div style="display: inline-box; width:230px; border:'1px solid blue;';" [ngStyle]="backgColr1">
  
    <br/>
+    <pre><b>&nbsp;&nbsp;&nbsp;Simple Observable</b></pre>
    <br/>
 </div> 
 
@@ -16,28 +17,35 @@
 <hr/>
 <div><input style="" type="button" value="take destroy" (click)="destroyTake($event)" /> </div>
 
+</div>
 <hr/>
 
 <!-- ==================================================   -->
+<div *ngIf="false">
 
 <div style="display: inline-box; width:230px; border:'1px solid blue;';" [ngStyle]="backgColr2">
  
    <br/>
+   <pre><b>&nbsp;&nbsp;&nbsp;Eternal Observable</b></pre>
    <br/>
 </div> 
 <hr/>
-<div><input style="" type="button" value="subscribe" (click)="subscribeClick2($event)" /> 
+<div><input style="" type="button" value="subscribe" (click)="subscribeClick2_1($event)" /> 
 &nbsp;&nbsp;&nbsp;
-<input style="" type="button" value="subscribe2" (click)="subscribeClick2($event)" /> </div>
+<input style="" type="button" value="subscribe2" (click)="subscribeClick2_2($event)" /> </div>
 
 <hr/>
 <div><input style="" type="button" value="take destroy" (click)="destroyTake2($event)" /> </div>
+</div> 
+
 <hr/>
 <!-- ==================================================   -->
 
+<div *ngIf="false">
 <div style="display: inline-box; width:230px; border:'1px solid blue;';" [ngStyle]="backgColr3">
  
    <br/>
+   <pre><b>&nbsp;&nbsp;&nbsp;Http Observable</b></pre>
    <br/>
 </div> 
 <hr/>
@@ -47,8 +55,11 @@
 <div><input style="" type="button" value="take destroy" (click)="destroyTake3($event)" /> </div>
 
 <hr/>
+</div> 
 
-<pre>Response: {{ obsrvHttp | async | json }}</pre>
+<!-- ==================================================   -->
+
+<pre *ngIf="false">Response: {{ obsrvHttp | async | json }}</pre>
 
 <!-- ==================================================   -->
 
@@ -56,7 +67,7 @@
 
 
 <hr>
-  <div  *ngIf="false" [formGroup]="complexForm4">
+  <div  *ngIf="true" [formGroup]="complexForm4">
       <h4><i>Asynchroner WeinValidator</i></h4>
       <mat-form-field class="example-full-width">
           <input matInput type="number" placeholder="Menge Wein" formControlName="mengeWein4">

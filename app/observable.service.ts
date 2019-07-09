@@ -24,7 +24,8 @@ export class ObservableWorkshopService {
 
   public eternalObservable() : Observable<number> {
 
-    let obs = Observable.range(1,2000);
+    // let obs = Observable.range(1,2000);
+    let obs = Observable.interval(300);
     
     return obs;
 

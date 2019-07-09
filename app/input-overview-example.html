@@ -1,32 +1,8 @@
 <br/>
 <mat-card>
  
- 
 
- <div style="display: inline-box; width:230px; border:'1px solid blue;';" [ngStyle]="backgColr1">
- 
-   <br/>
-   <br/>
-</div> 
-<hr>
-<div style="display: inline-box; width:230px; border:'1px solid blue;';" [ngStyle]="backgColr2">
- 
-   <br/>
-   <br/>
-</div> 
- 
-
-<hr/>
-<div><input style="" type="button" value="subscribe" (click)="subscribeClick($event)" /> </div>
-
-<hr/>
-<div><input style="" type="button" value="take destroy" (click)="destroyTake($event)" /> </div>
-
-
-
-
-
-  <div *ngIf="false"[formGroup]="complexForm">
+  <div *ngIf="true"[formGroup]="complexForm">
       <h4><i>SimpleWeinValidator</i></h4>
       <mat-form-field class="example-full-width">
           <input matInput type="number" placeholder="Menge Wein" formControlName="mengeWein">

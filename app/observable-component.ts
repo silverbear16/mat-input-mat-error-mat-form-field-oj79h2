@@ -63,7 +63,7 @@ export class ObservableComponent implements OnInit {
       let obs2 = this.observableService.eternalObservable();
       this.obsrv2 = obs2.takeUntil(this.destroy$)
           .pipe(tap((numb) => {
-              console.log('tap 1 number: ', numb);
+              console.log('tap vor delay : number: ', numb);
               this.backgColr2 = this.backgColrRed;}),
           delay(2000),
           tap((numb) => this.backgColr2 = this.backgColrGreen)
@@ -96,12 +96,20 @@ export class ObservableComponent implements OnInit {
     this.destroy$.next(true);
   }
 
-  private subscribeClick2(event) : void {
+  private subscribeClick2_1(event) : void {
       this.obsrv2.subscribe(
-        (numb)=> {console.log("number: ", numb); },
+        (numb)=> {console.log("subscriber 1 next: ", numb); },
         (err) => {console.log(" error: ", err); },
         ()=> {console.log(" completed ")}
       )}
+  
+  private subscribeClick2_2(event) : void {
+      this.obsrv2.subscribe(
+        (numb)=> {console.log("subscriber 2 next: ", numb); },
+        (err) => {console.log(" error: ", err); },
+        ()=> {console.log(" completed ")}
+      )}
+
 
   private destroyTake2(event) {
     console.log("destry ta!")
@@ -145,7 +153,6 @@ formErrors : TheoError[] = [
     getErrorFromControl(control: AbstractControl) : string {
         return extrahiereErstenTheoFehler(this.formErrors, control);
     }
-
 
 }
 
