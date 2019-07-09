@@ -43,6 +43,9 @@ import {BrowserModule} from '@angular/platform-browser';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {InputOverviewExample} from './app/input-overview-example';
+import {ObservableComponent} from './app/observable-component';
+
+
 
 @NgModule({
   exports: [
@@ -94,9 +97,9 @@ export class DemoMaterialModule {}
     MatNativeDateModule,
     ReactiveFormsModule,
   ],
-  entryComponents: [InputOverviewExample],
-  declarations: [InputOverviewExample],
-  bootstrap: [InputOverviewExample],
+  entryComponents: [ObservableComponent,InputOverviewExample],
+  declarations: [ObservableComponent,InputOverviewExample],
+  bootstrap: [ObservableComponent],
   providers: []
 })
 export class AppModule {}

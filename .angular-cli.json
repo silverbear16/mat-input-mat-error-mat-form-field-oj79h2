@@ -2,6 +2,11 @@
   "apps": [{
     "styles": [
       "styles.css"
-      ]
+      ],
+     "assets": [
+        "assets",
+        "favicon.ico",        
+        { "glob": "static/article.json", "input": "./", "output": "./assets/" }
+      ],  
   }]
 }

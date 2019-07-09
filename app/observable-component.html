@@ -1,0 +1,71 @@
+<br/>
+<mat-card>
+ 
+ 
+
+ <div style="display: inline-box; width:230px; border:'1px solid blue;';" [ngStyle]="backgColr1">
+ 
+   <br/>
+   <br/>
+</div> 
+
+<hr>
+ 
+<div><input style="" type="button" value="subscribe" (click)="subscribeClick($event)" /> </div>
+
+<hr/>
+<div><input style="" type="button" value="take destroy" (click)="destroyTake($event)" /> </div>
+
+<hr/>
+
+<!-- ==================================================   -->
+
+<div style="display: inline-box; width:230px; border:'1px solid blue;';" [ngStyle]="backgColr2">
+ 
+   <br/>
+   <br/>
+</div> 
+<hr/>
+<div><input style="" type="button" value="subscribe" (click)="subscribeClick2($event)" /> </div>
+
+<div><input style="" type="button" value="subscribe2" (click)="subscribeClick2($event)" /> </div>
+
+<hr/>
+<div><input style="" type="button" value="take destroy" (click)="destroyTake2($event)" /> </div>
+<hr/>
+<!-- ==================================================   -->
+
+<div style="display: inline-box; width:230px; border:'1px solid blue;';" [ngStyle]="backgColr3">
+ 
+   <br/>
+   <br/>
+</div> 
+<hr/>
+<div><input style="" type="button" value="subscribe" (click)="subscribeClick3($event)" /> </div>
+
+<hr/>
+<div><input style="" type="button" value="take destroy" (click)="destroyTake3($event)" /> </div>
+
+<hr/>
+
+<pre>Response: {{ obsrvHttp | async | json }}</pre>
+
+<!-- ==================================================   -->
+
+
+
+
+<hr>
+  <div  *ngIf="false" [formGroup]="complexForm4">
+      <h4><i>Asynchroner WeinValidator</i></h4>
+      <mat-form-field class="example-full-width">
+          <input matInput type="number" placeholder="Menge Wein" formControlName="mengeWein4">
+          <mat-error *ngIf="mengeWeinCtrl4.invalid">{{ getErrorFromControl(mengeWeinCtrl4) }} </mat-error>            
+      </mat-form-field>
+       <mat-spinner *ngIf="mengeWeinCtrl4.pending" > </mat-spinner>     
+  </div>
+
+
+</mat-card>
+<br/>
+
